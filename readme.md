@@ -112,8 +112,14 @@ Run status group 0 (all jobs):
  
 Disk stats (read/write):
   nvme7n1: ios=0/554468, merge=0/64968, ticks=0/2994162, in_queue=2271908, util=100.00%
-GP3 Random Write
+```
+
+# GP3 Random Write
+```bash
 root@test-0:/# fio --directory=/pvc/gp3 --ioengine=psync --name rwrite --direct=1 --rw=randwrite --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap
+```
+
+```
 rwrite: (g=0): rw=randwrite, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
 Jobs: 16 (f=16): [w(16)][100.0%][w=46.9MiB/s][w=3001 IOPS][eta 00m:00s]
 rwrite: (groupid=0, jobs=16): err= 0: pid=776: Fri May  7 04:36:19 2021
